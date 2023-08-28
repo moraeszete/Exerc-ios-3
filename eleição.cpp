@@ -10,11 +10,11 @@ d) 0 = Sai do Sistema
 #include <stdlib.h>
 #include <unistd.h>
 
-
-
-
-
 int main (){
+//numReiniciar setado para 1 para que o loop fique infinito até 
+//chegar no case default, onde o numReiniciar recebe 0 
+//encerrando o loop 
+
     int voto, numReiniciar = 1;
 
  for (int i = 1; i = numReiniciar ;i++){
@@ -31,6 +31,7 @@ int main (){
     scanf("%d", &voto);
 
     switch (voto){
+//linhas 37 e 38, respectivamente, uma seta um tempo para de o comando de clear e reinicar o loop  
     case 1:
      printf("Seu voto foi salvo!\n" "Vegeta! ");
      sleep(5);
@@ -69,6 +70,7 @@ int main (){
     
     default:
         numReiniciar = 0;
+        system("cls");
         break;
     }
   }
