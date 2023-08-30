@@ -28,7 +28,7 @@ int resultado(Votos votosDados){
 }
 
 int main (){
-    locale_t
+     setlocale(LC_ALL, "");
 //numReiniciar setado para 1 para que o loop fique infinito até 
 //chegar no case default, onde o numReiniciar recebe 0 
 //encerrando o loop 
