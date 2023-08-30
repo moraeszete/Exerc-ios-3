@@ -8,26 +8,30 @@ d) 0 = Sai do Sistema
 */
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h>
+#include <unistd.h> //usar o temporizador antes doo system clear 
 
-struct votos{
+struct Votos{
     int voto[4];
     int numNulo=0, numBranco=0;
-}
+};
 
-int resultado (){
+int resultado(Votos votosDados){
 
-       printf("A quantidade de votos para Vegeta: %d", votos.voto[0]);
-       printf("A quantidade de votos para Babidi: %d", votos.voto[1]);  
-       printf("A quantidade de votos para Piccolo: %d", votos.voto[2]);
-       printf("A quantidade de votos para Gohan: %d", votos.voto[3]);
+       printf("A quantidade de votos para Vegeta: %d\n", votosDados.voto[0]);
+       printf("A quantidade de votos para Babidi: %d\n", votosDados.voto[1]);  
+       printf("A quantidade de votos para Piccolo: %d\n", votosDados.voto[2]);
+       printf("A quantidade de votos para Gohan: %d\n", votosDados.voto[3]);
+       printf("A quantidade de votos Nulos: %d\n", votosDados.numNulo);
+       printf("A quantidade de votos em Branco: %d\n", votosDados.numBranco);
+       return(0);
 }
 
 int main (){
 //numReiniciar setado para 1 para que o loop fique infinito até 
 //chegar no case default, onde o numReiniciar recebe 0 
 //encerrando o loop 
-    int voto, numReiniciar = 1;
+   int voto, numReiniciar = 1;
+   Votos votosDados;
 
  for (int i = 1; i = numReiniciar ;i++){
     printf("------------------------\n");
@@ -46,43 +50,43 @@ int main (){
 //linhas 37 e 38, respectivamente, uma "seta" um tempo para de o comando de clear e reinicar o loop  
     case 1:
      printf("Seu voto foi salvo!\n" "Vegeta! ");
-     votos.voto[0] ++;
-     sleep(5);
+     votosDados.voto[0] ++;
+     sleep(3);
      system("cls");
         break;
 
     case 2:
      printf("Seu voto foi salvo!\n" "Babidi! ");
-     votos.voto[1] ++;
-     sleep(5);
+     votosDados.voto[1] ++;
+     sleep(3);
      system("cls");
         break;
 
     case 3:
      printf("Seu voto foi salvo!\n" "Piccolo! ");
-     votos.voto[2] ++;
-     sleep(5);
+     votosDados.voto[2] ++;
+     sleep(3);
      system("cls");
         break;
 
     case 4:
      printf("Seu voto foi salvo!\n" "Gohan! ");
-     votos.voto[3] ++;
-     sleep(5);
+     votosDados.voto[3] ++;
+     sleep(3);
      system("cls");
         break;
     
     case 5:
      printf("Seu voto foi salvo!\n" "NULO! ");
-     votos.numNulo ++;
-     sleep(5);
+     votosDados.numNulo ++;
+     sleep(3);
      system("cls");
         break;
     
     case 6:
      printf("Seu voto foi salvo!\n" "Em Branco! ");
-     votos.numBranco ++;
-     sleep(5);
+     votosDados.numBranco ++;
+     sleep(3);
      system("cls");
         break;
     
@@ -92,4 +96,6 @@ int main (){
         break;
     }
   }
+
+  resultado(votosDados);
 }
