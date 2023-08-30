@@ -6,6 +6,7 @@ b) 5 = voto nulo;
 c) 6 = voto em branco;
 d) 0 = Sai do Sistema
 */
+#include <locale.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h> //usar o temporizador antes doo system clear 
@@ -27,13 +28,18 @@ int resultado(Votos votosDados){
 }
 
 int main (){
+    locale_t
 //numReiniciar setado para 1 para que o loop fique infinito até 
 //chegar no case default, onde o numReiniciar recebe 0 
 //encerrando o loop 
-   int voto, numReiniciar = 1;
-   Votos votosDados;
+   int voto, numReiniciar;
+   Votos votosDados={}; // ={} --> significa colocar int voto[4] = {0}; para q os valores sejam zero nos vetores 
 
- for (int i = 1; i = numReiniciar ;i++){
+    printf("Digite o número de Pessoas que vão votar: ");
+    scanf("%d", &numReiniciar);
+
+
+ for (int i = 1; i <= numReiniciar ;i++){
     printf("------------------------\n");
     printf("- Vote 1 para Vegeta  --\n");
     printf("- Vote 2 para Babidi  --\n");
@@ -50,48 +56,48 @@ int main (){
 //linhas 37 e 38, respectivamente, uma "seta" um tempo para de o comando de clear e reinicar o loop  
     case 1:
      printf("Seu voto foi salvo!\n" "Vegeta! ");
-     votosDados.voto[0] ++;
+     votosDados.voto[0] += 1;
      sleep(3);
      system("cls");
         break;
 
     case 2:
      printf("Seu voto foi salvo!\n" "Babidi! ");
-     votosDados.voto[1] ++;
+     votosDados.voto[1] += 1;
      sleep(3);
      system("cls");
         break;
 
     case 3:
      printf("Seu voto foi salvo!\n" "Piccolo! ");
-     votosDados.voto[2] ++;
+     votosDados.voto[2] += 1;
      sleep(3);
      system("cls");
         break;
 
     case 4:
      printf("Seu voto foi salvo!\n" "Gohan! ");
-     votosDados.voto[3] ++;
+     votosDados.voto[3] += 1;
      sleep(3);
      system("cls");
         break;
     
     case 5:
      printf("Seu voto foi salvo!\n" "NULO! ");
-     votosDados.numNulo ++;
+     votosDados.numNulo += 1;
      sleep(3);
      system("cls");
         break;
     
     case 6:
      printf("Seu voto foi salvo!\n" "Em Branco! ");
-     votosDados.numBranco ++;
+     votosDados.numBranco += 1;
      sleep(3);
      system("cls");
         break;
     
     default:
-        numReiniciar = 0;
+        i = numReiniciar;
         system("cls");
         break;
     }
