@@ -9,11 +9,10 @@ d) 0 = Sai do Sistema
 #include <locale.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h> //usar o temporizador antes doo system clear 
-
+#include <unistd.h> //usar o temporizador antes do system clear 
 struct Votos{
     int voto[4];
-    int numNulo=0, numBranco=0;
+    int numNulo, numBranco;
 };
 
 int resultado(Votos votosDados){
@@ -103,5 +102,6 @@ int main (){
     }
   }
 
+  resultado(v1,v2);
   resultado(votosDados);
 }
